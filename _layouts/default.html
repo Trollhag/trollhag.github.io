@@ -3,15 +3,35 @@
 		<head>
 			<title>{{ page.title }}</title>
 			<!-- link to main stylesheet -->
+			<link href="https://fonts.googleapis.com/css?family=Roboto|Rock+Salt|Roboto+Slab" rel="stylesheet">
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+			<link rel="stylesheet" href="/main.css" />
+			
+			<script type="text/javascript">
+				document.addEventListener("DOMContentLoaded", function(event) {
+					document.querySelector('.menu-toggle').addEventListener('click', function() {
+						document.querySelector('.menu-toggle').classList.toggle('menu-open');
+						document.querySelector('.menu').classList.toggle('menu-open');
+					}, false);
+				});
+			</script>
 		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	    		</ul>
-			</nav>
+		<body class="{{ page.pageClass }}">
+			<header>
+				<button type="button" class="menu-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<h1 class="brand"><a href="/">Trollhag</a></h1>
+			</header>
+			<div class="sidebar menu">
+				<a class="portfolio" href="/portfolio"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Portfolio</span></a>
+				<a class="cv" href="/cv"><i class="fa fa-file-text" aria-hidden="true"></i><span>CV</span></a>
+				<a class="about" href="/about"><i class="fa fa-user" aria-hidden="true"></i><span>About me</span></a>
+			</div>
 			<div class="container">
 			
 			{{ content }}
